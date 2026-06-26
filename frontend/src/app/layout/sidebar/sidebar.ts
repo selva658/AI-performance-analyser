@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Header } from "../header/header";
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.scss'],
-  imports: [CommonModule, NgClass, RouterLink, RouterLinkActive]
+  imports: [CommonModule, RouterModule, Header]
 })
 export class SidebarComponent {
   menuItems = [
-  { label: 'Dashboard', route: '/' },
+  { label: 'Dashboard', route: '/dashboard' },
   { label: 'Video Analysis', route: '/video-analysis' },
   { label: 'Players', route: '/players' },
   { label: 'Teams', route: '/teams' },

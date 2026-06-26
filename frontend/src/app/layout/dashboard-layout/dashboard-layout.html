@@ -1,32 +1,254 @@
-<div class="app-shell">
-  <app-sidebar></app-sidebar>
 
-  <div class="main-section">
-    <app-header></app-header>
 
-    <main class="content-area">
-      <router-outlet></router-outlet>
-      <!-- <div class="stats-grid">
-    <div class="stat-card">
-      <h3>Total Players</h3>
-      <h1>128</h1>
-    </div>
+<div class="dashboard-content">
 
-    <div class="stat-card">
-      <h3>Teams</h3>
-      <h1>6</h1>
-    </div>
-
-    <div class="stat-card">
-      <h3>Attendance</h3>
-      <h1>92%</h1>
-    </div>
-
-    <div class="stat-card">
-      <h3>AI Alerts</h3>
-      <h1>12</h1>
-    </div>
-  </div> -->
-    </main>
+  <!-- Greeting -->
+  <div class="welcome-section">
+    <h2>Good Morning, Coach Alex!</h2>
+    <p>Here's what's happening with your teams today.</p>
   </div>
+
+  <!-- Statistics -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="icon blue">
+        <i class="fa-solid fa-users"></i>
+      </div>
+
+      <div class="content">
+        <span>Total Players</span>
+        <h2>128</h2>
+        <small class="green">+8 this month</small>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon brown">
+        <i class="fa-solid fa-shield"></i>
+      </div>
+
+      <div class="content">
+        <span>Total Teams</span>
+        <h2>6</h2>
+        <small>Active Squads</small>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon purple">
+        <i class="fa-regular fa-calendar"></i>
+      </div>
+
+      <div class="content">
+        <span>Upcoming Matches</span>
+        <h2>3</h2>
+        <small>Next 7 Days</small>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon green">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </div>
+
+      <div class="content">
+        <span>Avg Team Form</span>
+        <h2>72%</h2>
+        <small class="green">Good Form</small>
+      </div>
+    </div>
+
+    <div class="insight-card">
+
+      <div>
+
+        <span>AI Insights</span>
+
+        <h2>12</h2>
+
+        <small>New Insights</small>
+
+      </div>
+
+      <i class="fa-solid fa-brain"></i>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Middle Section -->
+
+  <div class="middle-grid">
+
+    <!-- Performance -->
+
+    <div class="performance-card">
+
+      <div class="card-header">
+
+        <h3>Team Performance Overview</h3>
+
+        <button>Last 6 Weeks</button>
+
+      </div>
+
+      <canvas #performanceChart></canvas>
+
+    </div>
+
+
+
+    <!-- Alerts -->
+
+    <div class="alerts-card">
+
+      <div class="card-header">
+
+        <h3>AI Alerts</h3>
+
+        <a>View All</a>
+
+      </div>
+
+      <div class="alert danger">
+
+        <i class="fa-solid fa-circle-exclamation"></i>
+
+        <div>
+
+          <h4>John Doe's stamina has dropped</h4>
+
+          <p>Recommend endurance training</p>
+
+        </div>
+
+        <span>-12%</span>
+
+      </div>
+
+
+
+      <div class="alert warning">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <div>
+
+          <h4>Team A defense is weak</h4>
+
+          <p>Win rate drops by 32% away</p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="alert warning">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <div>
+
+          <h4>High injury risk for 2 players</h4>
+
+          <p>Workload is above recommended</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Matches -->
+
+  <div class="matches-section">
+
+    <div class="card-header">
+
+      <h3>Upcoming Matches</h3>
+
+      <a>View All</a>
+
+    </div>
+
+
+
+    <div class="matches-grid">
+
+      <div class="match-card">
+
+        <div class="club-logo">
+
+          <i class="fa-solid fa-shield"></i>
+
+        </div>
+
+        <div>
+
+          <h4>Team A vs Team B</h4>
+
+          <span>U-14 League</span>
+
+        </div>
+
+        <small>10 May, 06:00 PM</small>
+
+      </div>
+
+
+
+      <div class="match-card">
+
+        <div class="club-logo">
+
+          <i class="fa-solid fa-shield"></i>
+
+        </div>
+
+        <div>
+
+          <h4>Team C vs Team A</h4>
+
+          <span>U-14 League</span>
+
+        </div>
+
+        <small>13 May, 08:00 PM</small>
+
+      </div>
+
+
+
+      <div class="match-card">
+
+        <div class="club-logo">
+
+          <i class="fa-solid fa-shield"></i>
+
+        </div>
+
+        <div>
+
+          <h4>Team A vs Team D</h4>
+
+          <span>U-14 League</span>
+
+        </div>
+
+        <small>18 May, 05:00 PM</small>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

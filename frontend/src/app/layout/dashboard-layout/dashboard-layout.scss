@@ -50,3 +50,285 @@
 .stat-card:hover {
   transform: translateY(-4px);
 }
+
+.dashboard-content {
+  padding: 30px;
+  padding-top: 0;
+  background: #f6f8fc;
+  min-height: 100vh;
+}
+
+.welcome-section {
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 6px;
+  }
+
+  p {
+    color: #8a8f9f;
+    font-size: 15px;
+  }
+}
+
+/*=======================*/
+/* Stats */
+/*=======================*/
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap:20px;
+  margin-bottom:28px;
+}
+
+.stat-card,
+.insight-card {
+  background:#fff;
+  border-radius:18px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.stat-card{
+
+  .icon{
+      width:60px;
+      height:60px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:26px;
+      margin-right:18px;
+  }
+
+  .blue{
+      background:#eef2ff;
+      color:#4257ff;
+  }
+
+  .brown{
+      background:#f7efe9;
+      color:#8b5b3f;
+  }
+
+  .purple{
+      background:#f0ecff;
+      color:#6c4cff;
+  }
+
+  .green{
+      background:#eaf9ef;
+      color:#1ba94c;
+  }
+
+  span{
+      color:#8c8f98;
+      font-size:13px;
+  }
+
+  h2{
+      font-size:36px;
+      margin:6px 0;
+      font-weight:700;
+  }
+
+  small{
+      color:#888;
+  }
+
+  .green{
+      color:#22a447;
+      background:none;
+  }
+
+}
+
+.insight-card{
+
+  background:#24124b;
+  color:#fff;
+  justify-content:space-between;
+
+  h2{
+      font-size:42px;
+      margin:8px 0;
+  }
+
+  span,
+  small{
+      color:#d7d2ef;
+  }
+
+  i{
+      font-size:60px;
+      opacity:.3;
+  }
+
+}
+
+/*=======================*/
+
+.middle-grid{
+
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+margin-bottom:25px;
+
+}
+
+.performance-card,
+.alerts-card,
+.matches-section{
+
+background:#fff;
+border-radius:20px;
+padding:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+.card-header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+
+h3{
+font-size:22px;
+font-weight:600;
+}
+
+button{
+
+border:none;
+background:#f2f3f7;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+a{
+color:#4257ff;
+font-weight:600;
+text-decoration:none;
+}
+
+}
+
+canvas{
+height:320px !important;
+}
+
+.alert{
+
+display:flex;
+align-items:flex-start;
+padding:18px;
+border-radius:14px;
+margin-bottom:15px;
+
+i{
+font-size:22px;
+margin-right:15px;
+}
+
+h4{
+font-size:16px;
+margin-bottom:6px;
+}
+
+p{
+font-size:13px;
+color:#777;
+}
+
+span{
+margin-left:auto;
+font-weight:700;
+}
+
+}
+
+.danger{
+background:#fff4f4;
+color:#eb5757;
+}
+
+.warning{
+background:#fffaf1;
+color:#f39c12;
+}
+
+.matches-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+
+}
+
+.match-card{
+
+display:flex;
+align-items:center;
+padding:18px;
+border:1px solid #ececec;
+border-radius:16px;
+
+.club-logo{
+
+width:55px;
+height:55px;
+border-radius:14px;
+background:#f6f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+margin-right:16px;
+
+}
+
+h4{
+
+margin-bottom:5px;
+font-size:16px;
+
+}
+
+span{
+
+display:block;
+font-size:13px;
+color:#888;
+
+}
+
+small{
+
+margin-left:auto;
+font-size:13px;
+color:#666;
+
+}
+
+}
+
+.performance-card {
+  height: 420px;
+}
+
+.performance-card canvas {
+  width: 100%;
+  height: 320px !important;
+}

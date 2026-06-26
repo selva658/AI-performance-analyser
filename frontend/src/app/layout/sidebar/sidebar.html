@@ -1,18 +1,34 @@
-<aside class="sidebar">
-  <div class="logo">
-    Athlete<span>IQ</span>
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      Athlete<span>IQ</span>
+    </div>
+
+    <nav>
+      @for (item of menuItems; track item.label) {
+        <a
+          class="menu-item"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+  </aside>
+
+  <!-- Right Side -->
+  <div class="main-section">
+
+    <app-header></app-header>
+
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+
   </div>
 
-  <nav>
-    @for (item of menuItems; track item.label) {
-      <div
-        class="menu-item"
-        [routerLink]="item.route"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        {{ item.label }}
-      </div>
-    }
-  </nav>
-</aside>
+</div>
