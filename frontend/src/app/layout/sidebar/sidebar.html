@@ -1,0 +1,13 @@
+<aside class="sidebar">
+  <div class="logo">
+    Athlete<span>IQ</span>
+  </div>
+
+  <nav>
+    @for (item of menuItems; track item){
+      <div class="menu-item active">
+        {{ item }}
+      </div>
+    }
+  </nav>
+</aside>

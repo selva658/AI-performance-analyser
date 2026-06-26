@@ -1,0 +1,55 @@
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0b1f4d, #09142f);
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+
+  span {
+    color: #3b82f6;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item {
+  padding: 14px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #cbd5e1;
+}
+
+.menu-item:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: white;
+}
+
+.menu-item.active {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+}
