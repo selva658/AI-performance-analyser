@@ -1,67 +1,129 @@
-<div class="analysis-container">
-  <!-- LEFT PANEL -->
-  <div class="left-panel">
-    <h1>AI Video Analysis</h1>
-
-    <div class="form-card">
-      <label>Upload Training Video</label>
-      <input type="file" accept="video/*" (change)="onFileSelected($event)" />
-
-      <label>Player Name</label>
-      <input [(ngModel)]="player.name" />
-
-      <label>Age</label>
-      <input type="number" [(ngModel)]="player.age" />
-
-      <label>Speed</label>
-      <input type="number" [(ngModel)]="player.speed" />
-
-      <label>Stamina</label>
-      <input type="number" [(ngModel)]="player.stamina" />
-
-      <label>Coach Notes</label>
-      <textarea [(ngModel)]="player.notes"></textarea>
-
-      <button (click)="analyze()">Analyze with AI</button>
-    </div>
-  </div>
-
-  <!-- RIGHT PANEL -->
-<div class="right-panel">
-  <h2>AI Report</h2>
-
-  <div *ngIf="loading" class="loading-state">
-    <div class="spinner"></div>
-    <p>AI is analyzing video...</p>
-  </div>
-
-  <div *ngIf="!loading && report">
-    <div class="risk-card">
-      Risk Level: {{ report.injury_risk }}
+<div class="page-wrapper">
+  <!-- Main Content -->
+  <main class="content">
+    <div class="top-header">
+      <div>
+        <h1>AI Video Analysis</h1>
+        <p>Upload training video and get AI-powered performance insights</p>
+      </div>
+      <div class="user-card">Coach Alex</div>
     </div>
 
-    <div class="report-section">
-      <h3>Strengths</h3>
-      <ul>
-        <li *ngFor="let s of report.strengths">✅ {{ s }}</li>
-      </ul>
-    </div>
+    <div class="main-grid">
+      <!-- LEFT -->
+      <section class="left-card">
+        <h2>Upload & Player Information</h2>
 
-    <div class="report-section">
-      <h3>Weaknesses</h3>
-      <ul>
-        <li *ngFor="let w of report.weaknesses">⚠ {{ w }}</li>
-      </ul>
-    </div>
+        <div class="upload-zone">
+          <input type="file" accept="video/*" (change)="onFileSelected($event)" />
+          <p>{{ selectedFile?.name || 'Drag & Drop Video Here' }}</p>
+        </div>
 
-    <div class="report-section">
-      <h3>Posture Analysis</h3>
-      <p>{{ report.posture_analysis }}</p>
-    </div>
-  </div>
+        <div class="input-grid">
+          <input placeholder="Player Name" [(ngModel)]="player.name" />
+          <input type="number" placeholder="Age" [(ngModel)]="player.age" />
+        </div>
 
-  <div *ngIf="!loading && !report" class="empty-report">
-    Upload video and click Analyze
-  </div>
+        <div class="input-grid">
+          <input type="number" placeholder="Speed" [(ngModel)]="player.speed" />
+          <input type="number" placeholder="Stamina" [(ngModel)]="player.stamina" />
+        </div>
+
+        <textarea
+          placeholder="Coach Notes"
+          [(ngModel)]="player.notes"
+        ></textarea>
+
+        <button class="analyze-btn" (click)="analyze()">
+          Analyze with AI
+        </button>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="right-card">
+        <div class="report-header">
+          <h2>AI Analysis Report</h2>
+          <span class="status">Completed</span>
+        </div>
+
+        <div *ngIf="loading" class="loading-state">
+          <div class="spinner"></div>
+          <p>AI is analyzing video...</p>
+        </div>
+
+        <div *ngIf="!loading && report">
+
+          <!-- Score Cards -->
+         <div class="score-grid">
+  <apx-chart
+    [series]="scoreGauge.series!"
+    [chart]="scoreGauge.chart!"
+    [plotOptions]="scoreGauge.plotOptions!"
+    [labels]="scoreGauge.labels!">
+  </apx-chart>
+
+  <apx-chart
+    [series]="speedGauge.series!"
+    [chart]="speedGauge.chart!"
+    [plotOptions]="speedGauge.plotOptions!"
+    [labels]="speedGauge.labels!">
+  </apx-chart>
+
+  <apx-chart
+    [series]="staminaGauge.series!"
+    [chart]="staminaGauge.chart!"
+    [plotOptions]="staminaGauge.plotOptions!"
+    [labels]="staminaGauge.labels!">
+  </apx-chart>
+
+  <apx-chart
+    [series]="riskGauge.series!"
+    [chart]="riskGauge.chart!"
+    [plotOptions]="riskGauge.plotOptions!"
+    [labels]="riskGauge.labels!">
+  </apx-chart>
 </div>
+
+          <!-- Radar Placeholder -->
+          <div class="radar-card">
+  <h3>Skill Breakdown</h3>
+
+  <apx-chart
+    [series]="radarChart.series!"
+    [chart]="radarChart.chart!"
+    [xaxis]="radarChart.xaxis!"
+    [stroke]="radarChart.stroke!"
+    [fill]="radarChart.fill!">
+  </apx-chart>
+</div>
+
+          <!-- Insights -->
+          <div class="insights-grid">
+            <div class="insight-card good">
+              <h3>Strengths</h3>
+              <ul>
+                <li *ngFor="let s of report.strengths">✓ {{ s }}</li>
+              </ul>
+            </div>
+
+            <div class="insight-card bad">
+              <h3>Weaknesses</h3>
+              <ul>
+                <li *ngFor="let w of report.weaknesses">⚠ {{ w }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="recommendation-card">
+            <h3>AI Recommendation</h3>
+            <p>{{ report.posture_analysis }}</p>
+          </div>
+        </div>
+
+        <div *ngIf="!loading && !report" class="empty-state">
+          Upload a video and click Analyze
+        </div>
+      </section>
+    </div>
+  </main>
 </div>

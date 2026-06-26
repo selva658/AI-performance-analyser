@@ -4,9 +4,14 @@
   </div>
 
   <nav>
-    @for (item of menuItems; track item){
-      <div class="menu-item active">
-        {{ item }}
+    @for (item of menuItems; track item.label) {
+      <div
+        class="menu-item"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.label }}
       </div>
     }
   </nav>

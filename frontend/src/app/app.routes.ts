@@ -5,10 +5,10 @@ import {VideoAnalysis} from './features/video-analysis/video-analysis'
 export const routes: Routes = [
   {
     path: '',
-    component: DashboardLayout
-  },
-  {
-    path: 'video-analysis',
-    component: VideoAnalysis
+    component: DashboardLayout,
+    children: [
+    //   { path: '', component: DashboardLayout },
+      { path: 'video-analysis', component: VideoAnalysis }
+    ]
   }
 ];
