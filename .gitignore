@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Angular build
+dist/
+.angular/
+.cache/
+coverage/
+
+# Backend build
+build/
+out/
+
+# Temporary files
+tmp/
+temp/
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Optional local db
+*.sqlite
+*.db
