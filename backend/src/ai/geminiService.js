@@ -37,4 +37,41 @@ async function analyzePlayer(player) {
   return result.response.text();
 }
 
-module.exports = { analyzePlayer };
+async function analyzeVideo(player, pose) {
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.5-flash"
+  });
+
+  const prompt = `
+You are an elite sports biomechanics analyst.
+
+Analyze player movement using stats and pose metrics.
+
+Player:
+Name: ${player.name}
+Age: ${player.age}
+Speed: ${player.speed}
+Stamina: ${player.stamina}
+Coach Notes: ${player.notes}
+
+Pose Metrics:
+Knee Angle: ${pose.kneeAngle}
+Balance Score: ${pose.balanceScore}
+Spine Tilt: ${pose.spineTilt}
+
+Return JSON only:
+
+{
+  "strengths": [],
+  "weaknesses": [],
+  "posture_analysis": "",
+  "recommendations": [],
+  "injury_risk": ""
+}
+`;
+
+  const result = await model.generateContent(prompt);
+  return result.response.text();
+}
+
+module.exports = { analyzePlayer, analyzeVideo };

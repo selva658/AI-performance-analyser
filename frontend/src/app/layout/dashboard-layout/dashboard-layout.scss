@@ -37,3 +37,16 @@
 .stat-card h1 {
   font-size: 32px;
 }
+
+.stat-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  border-top: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}

@@ -10,6 +10,7 @@ import { CommonModule, NgClass } from '@angular/common';
 export class SidebarComponent {
   menuItems = [
     'Dashboard',
+    'Video Analysis',
     'Players',
     'Teams',
     'Analytics',

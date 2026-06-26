@@ -3,9 +3,10 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const aiRoutes = require("./routes/aiRoutes");
+app.use(cors());
 app.use(express.json());
 app.use("/api/ai", aiRoutes);
-app.use(cors());
+
 
 app.get("/", (req, res) => {
   res.send("AthleteIQ API Running 🚀");

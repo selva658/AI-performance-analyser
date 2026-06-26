@@ -1,0 +1,67 @@
+<div class="analysis-container">
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <h1>AI Video Analysis</h1>
+
+    <div class="form-card">
+      <label>Upload Training Video</label>
+      <input type="file" accept="video/*" (change)="onFileSelected($event)" />
+
+      <label>Player Name</label>
+      <input [(ngModel)]="player.name" />
+
+      <label>Age</label>
+      <input type="number" [(ngModel)]="player.age" />
+
+      <label>Speed</label>
+      <input type="number" [(ngModel)]="player.speed" />
+
+      <label>Stamina</label>
+      <input type="number" [(ngModel)]="player.stamina" />
+
+      <label>Coach Notes</label>
+      <textarea [(ngModel)]="player.notes"></textarea>
+
+      <button (click)="analyze()">Analyze with AI</button>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+<div class="right-panel">
+  <h2>AI Report</h2>
+
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>AI is analyzing video...</p>
+  </div>
+
+  <div *ngIf="!loading && report">
+    <div class="risk-card">
+      Risk Level: {{ report.injury_risk }}
+    </div>
+
+    <div class="report-section">
+      <h3>Strengths</h3>
+      <ul>
+        <li *ngFor="let s of report.strengths">✅ {{ s }}</li>
+      </ul>
+    </div>
+
+    <div class="report-section">
+      <h3>Weaknesses</h3>
+      <ul>
+        <li *ngFor="let w of report.weaknesses">⚠ {{ w }}</li>
+      </ul>
+    </div>
+
+    <div class="report-section">
+      <h3>Posture Analysis</h3>
+      <p>{{ report.posture_analysis }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !report" class="empty-report">
+    Upload video and click Analyze
+  </div>
+</div>
+</div>

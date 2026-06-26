@@ -1,0 +1,109 @@
+.analysis-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  height: calc(100vh - 48px);
+}
+
+.left-panel,
+.right-panel {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+button {
+  margin-top: 24px;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.right-panel {
+  overflow-y: auto;
+}
+
+.risk-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #fef3c7;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.risk-card span {
+  color: #d97706;
+}
+
+.report-section {
+  margin-bottom: 24px;
+}
+
+.report-section h3 {
+  margin-bottom: 12px;
+  color: #1e3a8a;
+}
+
+.report-section ul {
+  padding-left: 20px;
+}
+
+.report-section li {
+  margin-bottom: 8px;
+}
+
+.empty-report {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: gray;
+  font-size: 18px;
+}
+
+.loading-state {
+  display: grid;
+  place-items: center;
+  height: 400px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
