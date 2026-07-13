@@ -1,0 +1,148 @@
+[
+  {
+    "id": "0429481b-a08b-43e2-a2dd-9e33ee489fd3",
+    "playerId": "053152fb-0345-4656-92e3-b6fdbcc34360",
+    "createdAt": "2026-07-11T11:57:03.854Z",
+    "report": {
+      "strengths": [
+        "Quick reaction time to the shot",
+        "Explosive push-off for diving save",
+        "Good body extension and reach during the dive",
+        "Effective parrying of the ball away from danger",
+        "Agile and well-coordinated movement"
+      ],
+      "weaknesses": [
+        "Recovery to a standing position for a potential second shot could be more immediate",
+        "The ball was parried rather than secured, which could lead to a rebound opportunity"
+      ],
+      "posture_analysis": "The goalkeeper maintains an athletic and balanced ready stance with bent knees and a slight forward lean. During the dive, the body exhibits good alignment and extension, allowing for maximum reach and control.",
+      "recommendations": [
+        "Implement drills focused on quick recovery after a save to prepare for follow-up shots",
+        "Practice securing the ball firmly when possible, rather than consistently parrying it away",
+        "Incorporate plyometric and core strengthening exercises to enhance explosive power and stability during dives",
+        "Review landing mechanics to optimize safety and reduce impact on joints"
+      ],
+      "injury_risk": "The diving technique appears controlled with no immediately visible biomechanical faults that suggest a high acute injury risk for this specific movement. However, repetitive diving inherently carries some risk.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 85,
+        "speed": 80,
+        "stamina": 70,
+        "technique": 90,
+        "consistency": 75,
+        "balance": 85
+      },
+      "analysis_mode": "video"
+    }
+  },
+  {
+    "id": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "createdAt": "2026-07-13T04:02:59.086Z",
+    "report": {
+      "strengths": [
+        "Athletic ready stance with good base",
+        "Decisive initial push-off for dives",
+        "Quick recovery after save attempts",
+        "Maintains good balance throughout movements",
+        "Good general physical readiness"
+      ],
+      "weaknesses": [
+        "Reaction timing for central shots needs improvement",
+        "Hand technique for catching/blocking lacks precision",
+        "Upper body and arm flexibility could be improved during save attempts",
+        "Slightly rigid hand positioning when attempting to block the ball",
+        "Positioning for shots could be optimized to cover more of the goal"
+      ],
+      "posture_analysis": "Samuel adopts an athletic ready stance with bent knees, a wide base, and a forward lean, indicating readiness for action. His posture remains stable during the initial push-off for a dive, with good core engagement. However, during the actual save attempts, his upper body and arms appear somewhat rigid, potentially limiting his reach and ball control. His head alignment is maintained, and he exhibits good balance during recovery, returning to his ready stance efficiently.",
+      "recommendations": [
+        "Implement specific drills to improve reaction time and anticipation for shots.",
+        "Focus on developing 'soft hands' and refined catching/blocking techniques through targeted drills.",
+        "Practice dynamic stretching and mobility exercises for the upper body and shoulders to enhance arm flexibility during saves.",
+        "Vary starting positions and practice covering different angles of the goal to optimize shot-stopping coverage.",
+        "Incorporate plyometric and agility exercises to enhance explosive power and quick lateral movements for more effective dives."
+      ],
+      "injury_risk": "Samuel displays controlled movements and stable landings, suggesting a generally low risk of acute injury in the observed actions. His good balance and recovery mechanics reduce the likelihood of awkward falls. However, continuous poor hand technique could lead to minor finger or wrist sprains over time if not addressed.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 68,
+        "speed": 70,
+        "stamina": 65,
+        "technique": 60,
+        "consistency": 55,
+        "balance": 80
+      },
+      "analysis_mode": "video"
+    }
+  },
+  {
+    "id": "13c33b90-c1f0-437c-8c0c-5599a5d71212",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "createdAt": "2026-07-13T10:12:34.075Z",
+    "report": {
+      "strengths": [
+        "Strong athletic base and readiness in goalkeeper stance.",
+        "Quick reaction time to the shot.",
+        "Known explosive pace (from player context)."
+      ],
+      "weaknesses": [
+        "Goalkeeping handling technique (failed catch).",
+        "Apparent difficulty with execution under pressure (aligns with player context 'finishing under pressure').",
+        "Could improve hand-eye coordination for secure saves."
+      ],
+      "posture_analysis": "Marcus adopts an effective pre-shot athletic stance, demonstrating readiness with bent knees and a lowered center of gravity. During the save attempt, his body position is adequate for reaching the ball, but the upper body, specifically arm and hand positioning, lacks the precision for a secure catch. Post-action, his posture shows clear signs of disappointment.",
+      "recommendations": [
+        "Implement targeted drills for clean catching and ball retention in goal.",
+        "Focus on strengthening grip and improving hand-eye coordination.",
+        "Practice goalkeeping under various pressure scenarios to enhance decision-making and execution.",
+        "Work on lateral movement efficiency and diving techniques."
+      ],
+      "injury_risk": "Based on this short video, Marcus exhibits no overt biomechanical markers indicative of a high injury risk during the observed movements. His movements are generally fluid and controlled.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 70,
+        "speed": 88,
+        "stamina": 50,
+        "technique": 60,
+        "consistency": 65,
+        "balance": 78
+      },
+      "analysis_mode": "video"
+    }
+  },
+  {
+    "id": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "createdAt": "2026-07-13T10:13:57.525Z",
+    "report": {
+      "strengths": [
+        "Good initial athletic stance, indicating readiness.",
+        "Quick reaction time to incoming shots.",
+        "Appears focused and engaged in the play."
+      ],
+      "weaknesses": [
+        "Goalkeeping technique for ground shots needs refinement, specifically dropping lower and proper hand positioning.",
+        "Inconsistent in maintaining an active ready stance and quick recovery after initial save attempts.",
+        "Lacks 'soft hands' technique, causing the ball to rebound rather than be controlled or caught."
+      ],
+      "posture_analysis": "Marcus displays an effective initial athletic stance with bent knees and a slight forward lean, indicating readiness. However, during save attempts, he occasionally becomes too upright, which can limit his reach and effectiveness for lower shots. After actions, he tends to return to a hands-on-knees posture, which might indicate a momentary lapse in sustained readiness or moderate stamina.",
+      "recommendations": [
+        "Implement specific goalkeeping drills for low shots, emphasizing dropping the body and using proper hand-to-ground contact.",
+        "Focus on developing 'soft hands' technique through catching and deflection drills to improve ball control.",
+        "Work on maintaining a sustained active ready stance and quick, explosive recovery between plays to be prepared for follow-up shots.",
+        "Incorporate plyometric and agility exercises to enhance explosive power for diving and rapid lateral movements."
+      ],
+      "injury_risk": "His movements appear generally controlled and there are no obvious biomechanical red flags indicating an immediate high injury risk based on this short clip. However, inefficient saving techniques could lead to minor impacts or strains over time, particularly in the knees or wrists if not corrected.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 70,
+        "speed": 75,
+        "stamina": 65,
+        "technique": 60,
+        "consistency": 65,
+        "balance": 75
+      },
+      "analysis_mode": "video"
+    }
+  }
+]

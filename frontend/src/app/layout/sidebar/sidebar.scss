@@ -7,6 +7,15 @@
   flex-direction: column;
   min-height: 100vh;
   height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.2s ease, padding 0.2s ease;
+
+  &.collapsed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .logo {
@@ -72,4 +81,8 @@ nav {
 .content-area {
   flex: 1;
   overflow-y: auto;
+}
+
+:host-context(.dark) .main-section {
+  background: #0d0d11;
 }

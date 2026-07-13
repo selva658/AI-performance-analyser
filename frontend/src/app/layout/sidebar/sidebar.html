@@ -1,7 +1,7 @@
 <div class="layout">
 
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" [class.collapsed]="!sidebarOpen()">
     <div class="logo">
       Athlete<span>IQ</span>
     </div>
@@ -23,7 +23,7 @@
   <!-- Right Side -->
   <div class="main-section">
 
-    <app-header></app-header>
+    <app-header (menuToggle)="toggleSidebar()"></app-header>
 
     <main class="content-area">
       <router-outlet></router-outlet>

@@ -1,9 +1,20 @@
 const express = require("express");
+const multer = require("multer");
+const os = require("os");
+const fs = require("fs");
 const router = express.Router();
 
-const { analyzePlayer, analyzeVideo } = require("../ai/geminiService");
+const { analyzePlayer, analyzeVideoWithFallback } = require("../ai/geminiService");
+const { createAnalysis } = require("../data/analysisStore");
+const { createRecommendation } = require("../data/recommendationStore");
+const { requireAuth, requireCoach } = require("../middleware/auth");
 
-router.post("/player-analysis", async (req, res) => {
+const upload = multer({
+  dest: os.tmpdir(),
+  limits: { fileSize: 500 * 1024 * 1024 },
+});
+
+router.post("/player-analysis", requireAuth, requireCoach, async (req, res) => {
   try {
     console.log("REQ BODY:", req.body);
 
@@ -23,27 +34,39 @@ router.post("/player-analysis", async (req, res) => {
   }
 });
 
-router.post("/video-analysis", async (req, res) => {
+router.post("/video-analysis", requireAuth, requireCoach, upload.single("video"), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: "A video file is required" });
+  }
+
+  let player;
   try {
-    const player = req.body;
+    player = JSON.parse(req.body.player || "{}");
+  } catch {
+    return res.status(400).json({ error: "Invalid player data" });
+  }
 
-    const mockPoseMetrics = {
-      kneeAngle: 132,
-      balanceScore: 74,
-      spineTilt: 16
-    };
+  try {
+    const report = await analyzeVideoWithFallback(player, req.file);
 
-    const insights = await analyzeVideo(player, mockPoseMetrics);
+    const playerId = req.body.playerId;
+    if (playerId) {
+      try {
+        const analysis = createAnalysis({ playerId, report });
+        for (const text of report.recommendations || []) {
+          createRecommendation({ playerId, analysisId: analysis.id, text });
+        }
+      } catch (saveError) {
+        console.error("Failed to save analysis to player history:", saveError.message);
+      }
+    }
 
-    const cleaned = insights
-      .replace(/```json/g, "")
-      .replace(/```/g, "")
-      .trim();
-
-    res.json(JSON.parse(cleaned));
+    res.json(report);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
+  } finally {
+    fs.unlink(req.file.path, () => {});
   }
 });
 

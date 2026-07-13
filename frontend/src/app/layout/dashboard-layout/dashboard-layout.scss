@@ -93,6 +93,8 @@
   display:flex;
   align-items:center;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
+  text-decoration: none;
+  color: inherit;
 }
 
 .stat-card{
@@ -320,4 +322,75 @@ color:#666;
 
 .content .green {
   background: none;
+}
+
+/* Dark mode */
+
+:host-context(.dark) {
+  .app-shell,
+  .dashboard-content {
+    background: #0d0d11;
+  }
+
+  .welcome-section {
+    h2 {
+      color: #f4f4f5;
+    }
+
+    p {
+      color: #8a8a94;
+    }
+  }
+
+  .stat-card,
+  .performance-card,
+  .alerts-card,
+  .matches-section {
+    background: #17171c;
+    box-shadow: none;
+    border: 1px solid #2b2b33;
+  }
+
+  .stat-card small {
+    color: #8a8a94;
+  }
+
+  .card-header {
+    h3 {
+      color: #f4f4f5;
+    }
+
+    button {
+      background: #1f1f26;
+      color: #c3c2c9;
+    }
+  }
+
+  .match-card {
+    border-color: #2b2b33;
+
+    .club-logo {
+      background: #1f1f26;
+    }
+
+    span {
+      color: #8a8a94;
+    }
+
+    small {
+      color: #75757f;
+    }
+  }
+
+  .alert p {
+    color: #a3a3ab;
+  }
+
+  .danger {
+    background: rgba(239, 68, 68, 0.12);
+  }
+
+  .warning {
+    background: rgba(245, 158, 11, 0.12);
+  }
 }

@@ -1,0 +1,107 @@
+<div class="page-wrapper">
+  <div class="bg-decor" aria-hidden="true"></div>
+
+  <main class="content">
+    <div class="top-header">
+      <div>
+        <span class="eyebrow"><i-lucide [img]="icons.Users" [size]="12"></i-lucide> Roster</span>
+        <h1>Players</h1>
+        <p>Manage your roster and jump into a player's profile</p>
+      </div>
+      <button class="add-btn" (click)="toggleAddForm()">
+        <i-lucide [img]="icons.Plus" [size]="16"></i-lucide>
+        Add Player
+      </button>
+    </div>
+
+    <div class="add-form" *ngIf="showAddForm">
+      <div class="field-grid">
+        <label class="field">
+          <span class="field-label">Player name</span>
+          <input placeholder="e.g. Jordan Smith" [(ngModel)]="newPlayer.name" />
+        </label>
+        <label class="field">
+          <span class="field-label">Age</span>
+          <input type="number" [(ngModel)]="newPlayer.age" />
+        </label>
+      </div>
+      <div class="field-grid">
+        <label class="field">
+          <span class="field-label">Team</span>
+          <input placeholder="e.g. U-14 Falcons" [(ngModel)]="newPlayer.team" />
+        </label>
+        <label class="field">
+          <span class="field-label">Position</span>
+          <input placeholder="e.g. Midfielder" [(ngModel)]="newPlayer.position" />
+        </label>
+      </div>
+      <label class="field">
+        <span class="field-label">Notes</span>
+        <textarea placeholder="Anything worth remembering about this player…" [(ngModel)]="newPlayer.notes"></textarea>
+      </label>
+
+      <p class="fieldset-label">Player login <span class="optional-tag">optional</span></p>
+      <div class="field-grid">
+        <label class="field">
+          <span class="field-label">Email</span>
+          <input type="email" placeholder="player@example.com" [(ngModel)]="newPlayer.email" />
+        </label>
+        <label class="field">
+          <span class="field-label">Password</span>
+          <input type="password" placeholder="Leave blank for no login" [(ngModel)]="newPlayer.password" />
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button class="ghost-btn" (click)="toggleAddForm()">Cancel</button>
+        <button class="add-btn" [disabled]="!newPlayer.name.trim() || saving()" (click)="addPlayer()">
+          {{ saving() ? 'Saving…' : 'Save Player' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="toolbar" *ngIf="players().length">
+      <div class="search-box">
+        <i-lucide [img]="icons.Search" [size]="16"></i-lucide>
+        <input placeholder="Search by name, team, or position…" [(ngModel)]="searchTerm" />
+      </div>
+      <span class="roster-count">{{ filteredPlayers.length }} of {{ players().length }} players</span>
+    </div>
+
+    <div *ngIf="errorMessage()" class="error-banner">{{ errorMessage() }}</div>
+
+    <div *ngIf="loading()" class="state-card">
+      <div class="spinner"></div>
+      <p>Loading players…</p>
+    </div>
+
+    <div *ngIf="!loading() && !players().length" class="state-card empty-state">
+      <span class="state-icon-badge"><i-lucide [img]="icons.Users" [size]="28"></i-lucide></span>
+      <p class="state-title">No players yet</p>
+      <p class="state-sub">Add your first player to start building their profile and training history.</p>
+    </div>
+
+    <div *ngIf="!loading() && players().length && !filteredPlayers.length" class="state-card">
+      <p class="state-title">No players match "{{ searchTerm }}"</p>
+    </div>
+
+    <div class="player-grid" *ngIf="!loading() && filteredPlayers.length">
+      <a class="player-card" *ngFor="let player of filteredPlayers" [routerLink]="['/players', player.id]">
+        <div class="player-avatar">{{ initials(player.name) }}</div>
+        <div class="player-info">
+          <span class="player-name">{{ player.name }}</span>
+          <div class="player-tags">
+            <span class="tag" *ngIf="player.age">Age {{ player.age }}</span>
+            <span class="tag" *ngIf="player.team">{{ player.team }}</span>
+            <span class="tag" *ngIf="player.position">{{ player.position }}</span>
+            <span class="tag muted" *ngIf="!player.age && !player.team && !player.position">No details yet</span>
+          </div>
+        </div>
+        <button class="icon-btn delete-btn" aria-label="Delete player" (click)="deletePlayer(player, $event)">
+          <i-lucide [img]="icons.Trash2" [size]="15"></i-lucide>
+        </button>
+        <i-lucide class="chevron" [img]="icons.ArrowRight" [size]="16"></i-lucide>
+      </a>
+    </div>
+  </main>
+</div>

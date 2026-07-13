@@ -1,14 +1,47 @@
 <header class="header">
-  <div class="search-box">
-    <input placeholder="Search players..." />
+  <button class="icon-btn menu-btn" aria-label="Toggle sidebar" (click)="menuToggle.emit()">
+    <i-lucide [img]="icons.Menu" [size]="18"></i-lucide>
+  </button>
+
+  <label class="search-box">
+    <i-lucide [img]="icons.Search" [size]="16" class="search-icon"></i-lucide>
+    <input placeholder="Search players, teams, videos..." />
+  </label>
+
+  <button class="icon-btn" aria-label="Filters">
+    <i-lucide [img]="icons.SlidersHorizontal" [size]="16"></i-lucide>
+  </button>
+
+  <div class="spacer"></div>
+
+  <div class="date-chip">
+    <i-lucide [img]="icons.CalendarDays" [size]="15"></i-lucide>
+    <span>{{ today | date: 'MMM d, y' }}</span>
   </div>
 
-  <div class="right-section">
-    <button class="notification">🔔</button>
+  <button class="icon-btn" aria-label="Notifications">
+    <i-lucide [img]="icons.Bell" [size]="18"></i-lucide>
+    <span class="badge" *ngIf="unreadCount > 0">{{ unreadCount }}</span>
+  </button>
 
-    <div class="profile">
-      <div class="avatar">A</div>
-      <span>Coach Alex</span>
+  <button class="icon-btn" aria-label="Toggle theme" (click)="theme.toggle()">
+    <i-lucide [img]="theme.theme() === 'dark' ? icons.Sun : icons.Moon" [size]="17"></i-lucide>
+  </button>
+
+  <div class="divider"></div>
+
+  <div class="profile">
+    <div class="avatar">
+      {{ initial }}
+      <span class="online-dot"></span>
+    </div>
+    <div class="profile-text">
+      <span class="profile-name">{{ auth.user()?.name }}</span>
+      <span class="profile-role">{{ roleLabel }}</span>
     </div>
   </div>
+
+  <button class="icon-btn" aria-label="Log out" (click)="logout()">
+    <i-lucide [img]="icons.LogOut" [size]="17"></i-lucide>
+  </button>
 </header>

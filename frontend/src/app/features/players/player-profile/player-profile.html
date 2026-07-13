@@ -1,0 +1,333 @@
+<div class="page-wrapper">
+  <main class="content">
+    <a routerLink="/players" class="back-link" *ngIf="!readOnly">
+      <i-lucide [img]="icons.ArrowLeft" [size]="15"></i-lucide>
+      Back to Players
+    </a>
+
+    <div *ngIf="loading()" class="state-card">
+      <div class="spinner"></div>
+      <p>Loading player…</p>
+    </div>
+
+    <div *ngIf="!loading() && errorMessage() && !player()" class="state-card">
+      <p class="state-title">{{ errorMessage() }}</p>
+    </div>
+
+    <ng-container *ngIf="!loading() && player() as player">
+      <div class="profile-header">
+        <div class="profile-identity">
+          <div class="player-avatar">{{ initials(player.name) }}</div>
+          <div>
+            <h1>{{ player.name }}</h1>
+            <p class="profile-sub">
+              <ng-container *ngIf="player.age">Age {{ player.age }}</ng-container>
+              <ng-container *ngIf="player.team"> · {{ player.team }}</ng-container>
+              <ng-container *ngIf="player.position"> · {{ player.position }}</ng-container>
+              <ng-container *ngIf="!player.age && !player.team && !player.position">No details added yet</ng-container>
+            </p>
+          </div>
+        </div>
+        <div class="profile-actions" *ngIf="!editing && !readOnly">
+          <button class="ghost-btn" (click)="startEdit()">
+            <i-lucide [img]="icons.Pencil" [size]="14"></i-lucide> Edit
+          </button>
+          <button class="icon-btn" aria-label="Delete player" (click)="deletePlayer()">
+            <i-lucide [img]="icons.Trash2" [size]="15"></i-lucide>
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage()" class="error-banner">{{ errorMessage() }}</div>
+
+      <div class="card" *ngIf="editing">
+        <h2>Edit details</h2>
+        <div class="field-grid">
+          <label class="field">
+            <span class="field-label">Player name</span>
+            <input [(ngModel)]="editForm.name" />
+          </label>
+          <label class="field">
+            <span class="field-label">Age</span>
+            <input type="number" [(ngModel)]="editForm.age" />
+          </label>
+        </div>
+        <div class="field-grid">
+          <label class="field">
+            <span class="field-label">Team</span>
+            <input [(ngModel)]="editForm.team" />
+          </label>
+          <label class="field">
+            <span class="field-label">Position</span>
+            <input [(ngModel)]="editForm.position" />
+          </label>
+        </div>
+        <label class="field">
+          <span class="field-label">Notes</span>
+          <textarea [(ngModel)]="editForm.notes"></textarea>
+        </label>
+
+        <p class="fieldset-label">Player login <span class="optional-tag">optional</span></p>
+        <div class="field-grid">
+          <label class="field">
+            <span class="field-label">Email</span>
+            <input type="email" placeholder="player@example.com" [(ngModel)]="editForm.email" />
+          </label>
+          <label class="field">
+            <span class="field-label">Password</span>
+            <input type="password" placeholder="Leave blank to keep current" [(ngModel)]="editForm.password" />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="ghost-btn" (click)="cancelEdit()">Cancel</button>
+          <button class="add-btn" [disabled]="!editForm.name.trim() || saving()" (click)="saveEdit()">
+            {{ saving() ? 'Saving…' : 'Save Changes' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="card" *ngIf="!editing && player.notes">
+        <h2>Coach Notes</h2>
+        <p class="notes-text">{{ player.notes }}</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2><i-lucide [img]="icons.ListChecks" [size]="16"></i-lucide> Training Recommendations</h2>
+          <span class="pending-count" *ngIf="recommendations().length">{{ pendingCount }} pending</span>
+        </div>
+
+        <div *ngIf="recommendationsLoading()" class="empty-history">
+          <p class="state-sub">Loading recommendations…</p>
+        </div>
+
+        <div class="empty-history" *ngIf="!recommendationsLoading() && !recommendations().length">
+          <p class="state-title">No recommendations yet</p>
+          <p class="state-sub">Run a video analysis to generate actionable recommendations for {{ player.name }}.</p>
+        </div>
+
+        <div class="recommendation-list" *ngIf="!recommendationsLoading() && recommendations().length">
+          <div class="recommendation-row" *ngFor="let rec of sortedRecommendations" [class.done]="rec.status === 'done'">
+            <button class="toggle-btn" [disabled]="readOnly" (click)="!readOnly && toggleRecommendation(rec)" [attr.aria-label]="rec.status === 'done' ? 'Mark as pending' : 'Mark as done'">
+              <i-lucide [img]="rec.status === 'done' ? icons.CircleCheck : icons.Circle" [size]="18"></i-lucide>
+            </button>
+            <span class="recommendation-text">{{ rec.text }}</span>
+            <ng-container *ngIf="!readOnly">
+              <button class="icon-btn" aria-label="Schedule session for this recommendation" *ngIf="rec.status === 'pending'" (click)="openSessionForm(rec)">
+                <i-lucide [img]="icons.CalendarPlus" [size]="13"></i-lucide>
+              </button>
+              <button class="icon-btn delete-btn" aria-label="Delete recommendation" (click)="deleteRecommendation(rec, $event)">
+                <i-lucide [img]="icons.Trash2" [size]="13"></i-lucide>
+              </button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2><i-lucide [img]="icons.CalendarClock" [size]="16"></i-lucide> Training Schedule</h2>
+          <button class="add-btn" (click)="openSessionForm()" *ngIf="!showSessionForm && !readOnly">
+            <i-lucide [img]="icons.CalendarPlus" [size]="15"></i-lucide>
+            Schedule Session
+          </button>
+        </div>
+
+        <div class="session-form" *ngIf="showSessionForm">
+          <label class="field">
+            <span class="field-label">Title</span>
+            <input placeholder="e.g. Finishing drills" [(ngModel)]="sessionForm.title" />
+          </label>
+          <label class="field">
+            <span class="field-label">Date & time</span>
+            <input type="datetime-local" [(ngModel)]="sessionForm.scheduledAt" />
+          </label>
+          <label class="field">
+            <span class="field-label">Notes</span>
+            <textarea placeholder="Anything to prepare for this session…" [(ngModel)]="sessionForm.notes"></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="ghost-btn" (click)="cancelSessionForm()">Cancel</button>
+            <button class="add-btn" [disabled]="!sessionForm.title.trim() || !sessionForm.scheduledAt || savingSession" (click)="saveSession()">
+              {{ savingSession ? 'Saving…' : 'Save Session' }}
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="sessionsLoading()" class="empty-history">
+          <p class="state-sub">Loading schedule…</p>
+        </div>
+
+        <div class="empty-history" *ngIf="!sessionsLoading() && !sessions().length && !showSessionForm">
+          <p class="state-title">Nothing scheduled yet</p>
+          <p class="state-sub">Schedule a session to plan {{ player.name }}'s next training.</p>
+        </div>
+
+        <div class="recommendation-list" *ngIf="!sessionsLoading() && sessions().length">
+          <div class="recommendation-row" *ngFor="let session of sortedSessions" [class.done]="session.status === 'completed'">
+            <button class="toggle-btn" [disabled]="readOnly" (click)="!readOnly && toggleSession(session)" [attr.aria-label]="session.status === 'completed' ? 'Mark as upcoming' : 'Mark as completed'">
+              <i-lucide [img]="session.status === 'completed' ? icons.CircleCheck : icons.Circle" [size]="18"></i-lucide>
+            </button>
+            <div class="session-info">
+              <span class="recommendation-text">{{ session.title }}</span>
+              <span class="session-date">{{ session.scheduledAt | date: 'MMM d, y · h:mm a' }}</span>
+            </div>
+            <button class="icon-btn delete-btn" *ngIf="!readOnly" aria-label="Delete session" (click)="deleteSession(session, $event)">
+              <i-lucide [img]="icons.Trash2" [size]="13"></i-lucide>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2><i-lucide [img]="icons.ClipboardList" [size]="16"></i-lucide> Video Analysis History</h2>
+          <a routerLink="/video-analysis" [queryParams]="{ playerId: player.id }" class="add-btn" *ngIf="!readOnly">
+            <i-lucide [img]="icons.Video" [size]="15"></i-lucide>
+            Analyze Video
+          </a>
+        </div>
+
+        <div *ngIf="analysesLoading()" class="empty-history">
+          <p class="state-sub">Loading history…</p>
+        </div>
+
+        <div class="empty-history" *ngIf="!analysesLoading() && !analyses().length">
+          <p class="state-title">No analyses yet</p>
+          <p class="state-sub">Run a video analysis to start tracking {{ player.name }}'s progress over time.</p>
+        </div>
+
+        <div class="history-list" *ngIf="!analysesLoading() && analyses().length">
+          <div class="history-item" *ngFor="let analysis of analyses()">
+            <div class="history-row" (click)="toggleExpand(analysis.id)">
+              <div class="history-score">{{ analysis.report.metrics.overall_score }}</div>
+              <div class="history-info">
+                <span class="history-date">{{ analysis.createdAt | date: 'MMM d, y · h:mm a' }}</span>
+                <div class="history-tags">
+                  <span
+                    class="risk-tag"
+                    [style.--tone]="riskTone(analysis.report.risk_level).fill"
+                    [style.--tint]="riskTone(analysis.report.risk_level).tint">
+                    {{ analysis.report.risk_level }} risk
+                  </span>
+                  <span class="tag muted" *ngIf="analysis.report.analysis_mode === 'stats_only'">Stats-only</span>
+                </div>
+              </div>
+              <button class="icon-btn" *ngIf="!readOnly" aria-label="Delete analysis" (click)="deleteAnalysis(analysis, $event)">
+                <i-lucide [img]="icons.Trash2" [size]="14"></i-lucide>
+              </button>
+              <i-lucide class="expand-chevron" [class.open]="expandedId() === analysis.id" [img]="icons.ChevronDown" [size]="16"></i-lucide>
+            </div>
+
+            <div class="history-detail" *ngIf="expandedId() === analysis.id">
+              <div class="detail-metrics">
+                <div class="detail-metric">
+                  <span class="detail-metric-label">Speed</span>
+                  <span class="detail-metric-value">{{ analysis.report.metrics.speed }}</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="detail-metric-label">Stamina</span>
+                  <span class="detail-metric-value">{{ analysis.report.metrics.stamina }}</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="detail-metric-label">Technique</span>
+                  <span class="detail-metric-value">{{ analysis.report.metrics.technique }}</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="detail-metric-label">Consistency</span>
+                  <span class="detail-metric-value">{{ analysis.report.metrics.consistency }}</span>
+                </div>
+                <div class="detail-metric">
+                  <span class="detail-metric-label">Balance</span>
+                  <span class="detail-metric-value">{{ analysis.report.metrics.balance }}</span>
+                </div>
+              </div>
+
+              <div class="detail-insights">
+                <div class="detail-insight good">
+                  <h4><i-lucide [img]="icons.CircleCheck" [size]="13"></i-lucide> Strengths</h4>
+                  <ul>
+                    <li *ngFor="let s of analysis.report.strengths">{{ s }}</li>
+                  </ul>
+                </div>
+                <div class="detail-insight bad">
+                  <h4><i-lucide [img]="icons.TriangleAlert" [size]="13"></i-lucide> Weaknesses</h4>
+                  <ul>
+                    <li *ngFor="let w of analysis.report.weaknesses">{{ w }}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h4><i-lucide [img]="icons.PersonStanding" [size]="13"></i-lucide> Posture Analysis</h4>
+                <p>{{ analysis.report.posture_analysis }}</p>
+              </div>
+
+              <div class="detail-section">
+                <h4><i-lucide [img]="icons.Lightbulb" [size]="13"></i-lucide> Recommendations</h4>
+                <ul>
+                  <li *ngFor="let r of analysis.report.recommendations">{{ r }}</li>
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h4><i-lucide [img]="icons.HeartPulse" [size]="13"></i-lucide> Injury Risk</h4>
+                <p>{{ analysis.report.injury_risk }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" *ngIf="!analysesLoading()">
+        <div class="card-header">
+          <h2><i-lucide [img]="icons.TrendingUp" [size]="16"></i-lucide> Progress</h2>
+          <span
+            class="delta-badge"
+            *ngIf="analyses().length >= 2"
+            [class.positive]="scoreDelta > 0"
+            [class.negative]="scoreDelta < 0">
+            {{ scoreDelta > 0 ? '+' : '' }}{{ scoreDelta }} since first analysis
+          </span>
+        </div>
+
+        <div class="empty-history" *ngIf="analyses().length < 2">
+          <p class="state-title">Not enough data yet</p>
+          <p class="state-sub">Run at least 2 analyses to start tracking {{ player.name }}'s progress over time.</p>
+        </div>
+
+        <ng-container *ngIf="analyses().length >= 2 && progressChart && comparisonRadar">
+          <h3 class="chart-label">Overall Score Trend</h3>
+          <apx-chart
+            [series]="progressChart.series!"
+            [chart]="progressChart.chart!"
+            [xaxis]="progressChart.xaxis!"
+            [yaxis]="progressChart.yaxis!"
+            [grid]="progressChart.grid!"
+            [stroke]="progressChart.stroke!"
+            [fill]="progressChart.fill!"
+            [markers]="progressChart.markers!"
+            [tooltip]="progressChart.tooltip!"
+            [legend]="progressChart.legend!">
+          </apx-chart>
+
+          <h3 class="chart-label">Skill Comparison — First vs Latest</h3>
+          <apx-chart
+            [series]="comparisonRadar.series!"
+            [chart]="comparisonRadar.chart!"
+            [xaxis]="comparisonRadar.xaxis!"
+            [yaxis]="comparisonRadar.yaxis!"
+            [plotOptions]="comparisonRadar.plotOptions!"
+            [stroke]="comparisonRadar.stroke!"
+            [fill]="comparisonRadar.fill!"
+            [markers]="comparisonRadar.markers!"
+            [dataLabels]="comparisonRadar.dataLabels!"
+            [legend]="comparisonRadar.legend!"
+            [tooltip]="comparisonRadar.tooltip!">
+          </apx-chart>
+        </ng-container>
+      </div>
+    </ng-container>
+  </main>
+</div>

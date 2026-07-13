@@ -11,17 +11,17 @@
   <!-- Statistics -->
   <div class="stats-grid">
 
-    <div class="stat-card">
+    <a class="stat-card" routerLink="/players">
       <div class="icon blue">
         <span class="material-icons">groups</span>
       </div>
 
       <div class="content">
         <span>Total Players</span>
-        <h2>128</h2>
-        <small class="green">+8 this month</small>
+        <h2>{{ totalPlayers() }}</h2>
+        <small>On your roster</small>
       </div>
-    </div>
+    </a>
 
     <div class="stat-card">
       <div class="icon brown">
@@ -65,9 +65,9 @@
 
         <span>AI Insights</span>
 
-        <h2>12</h2>
+        <h2>{{ pendingInsights() }}</h2>
 
-        <small>New Insights</small>
+        <small>Pending recommendations</small>
 
       </div>
 

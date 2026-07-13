@@ -1,0 +1,229 @@
+[
+  {
+    "id": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "name": "Marcus Johnson",
+    "age": 16,
+    "team": "U-16 Eagles",
+    "position": "Striker",
+    "notes": "Explosive pace, needs to work on finishing under pressure.",
+    "createdAt": "2026-07-11T14:15:18.972Z",
+    "email": "marcus@athleteiq.local",
+    "passwordHash": "$2b$10$G95kzJPUzOzAFH/ieX5ECeoFhCT127GakZas/hcA04ZmmMj99/Fi6"
+  },
+  {
+    "id": "33cc2b2d-11fe-430a-b8f9-4363a80993b4",
+    "name": "Ethan Brooks",
+    "age": 15,
+    "team": "U-15 Falcons",
+    "position": "Midfielder",
+    "notes": "Great vision, controls tempo well.",
+    "createdAt": "2026-07-11T14:15:18.974Z"
+  },
+  {
+    "id": "c9e7a461-56b2-419e-a246-036f3c425dea",
+    "name": "Liam Carter",
+    "age": 17,
+    "team": "U-17 Hawks",
+    "position": "Defender",
+    "notes": "Strong in the air, composed on the ball.",
+    "createdAt": "2026-07-11T14:15:18.975Z"
+  },
+  {
+    "id": "4aa62ebf-1914-4928-a816-8fcdda398831",
+    "name": "Noah Williams",
+    "age": 14,
+    "team": "U-14 Falcons",
+    "position": "Winger",
+    "notes": "Quick feet, needs more end product.",
+    "createdAt": "2026-07-11T14:15:18.976Z"
+  },
+  {
+    "id": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "name": "Oliver Davis",
+    "age": 16,
+    "team": "U-16 Eagles",
+    "position": "Goalkeeper",
+    "notes": "Excellent shot-stopper, communicates well.",
+    "createdAt": "2026-07-11T14:15:18.977Z"
+  },
+  {
+    "id": "53f6cf2c-120a-44c7-a94a-42dbe68f6e60",
+    "name": "James Wilson",
+    "age": 18,
+    "team": "U-18 Hawks",
+    "position": "Striker",
+    "notes": "Clinical finisher, leads by example.",
+    "createdAt": "2026-07-11T14:15:18.978Z"
+  },
+  {
+    "id": "a3b2fe17-e384-4ef3-889b-abfbaebfae59",
+    "name": "Benjamin Moore",
+    "age": 15,
+    "team": "U-15 Falcons",
+    "position": "Defender",
+    "notes": "Reliable tackler, reads the game well.",
+    "createdAt": "2026-07-11T14:15:18.979Z"
+  },
+  {
+    "id": "b54da6ae-f33e-4202-87fd-fa990e8144ad",
+    "name": "Lucas Taylor",
+    "age": 17,
+    "team": "U-17 Eagles",
+    "position": "Midfielder",
+    "notes": "Box-to-box engine, high work rate.",
+    "createdAt": "2026-07-11T14:15:18.979Z"
+  },
+  {
+    "id": "8e5b5a70-16ca-4f12-9856-e910586dff5e",
+    "name": "Henry Anderson",
+    "age": 14,
+    "team": "U-14 Hawks",
+    "position": "Winger",
+    "notes": "Pacey and direct, one-footed.",
+    "createdAt": "2026-07-11T14:15:18.980Z"
+  },
+  {
+    "id": "7881e99f-ac59-4656-9dfe-c7dec50c2301",
+    "name": "Alexander Thomas",
+    "age": 16,
+    "team": "U-16 Falcons",
+    "position": "Defender",
+    "notes": "Calm under pressure, good distribution.",
+    "createdAt": "2026-07-11T14:15:18.981Z"
+  },
+  {
+    "id": "8611e42e-ecce-4eae-a9b1-b5ba3aeb89b1",
+    "name": "Daniel Jackson",
+    "age": 18,
+    "team": "U-18 Eagles",
+    "position": "Midfielder",
+    "notes": "Creative playmaker, needs defensive discipline.",
+    "createdAt": "2026-07-11T14:15:18.982Z"
+  },
+  {
+    "id": "cb122790-d3be-48b8-8f3b-da1a6f14cd94",
+    "name": "Matthew White",
+    "age": 15,
+    "team": "U-15 Hawks",
+    "position": "Striker",
+    "notes": "Good movement off the ball.",
+    "createdAt": "2026-07-11T14:15:18.982Z"
+  },
+  {
+    "id": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "name": "Samuel Harris",
+    "age": 17,
+    "team": "U-17 Falcons",
+    "position": "Goalkeeper",
+    "notes": "Athletic, commands the box well.",
+    "createdAt": "2026-07-11T14:15:18.983Z"
+  },
+  {
+    "id": "3269d686-031f-4bd4-9a5e-7468d3a434cb",
+    "name": "David Martin",
+    "age": 14,
+    "team": "U-14 Eagles",
+    "position": "Defender",
+    "notes": "Solid fundamentals, still developing physically.",
+    "createdAt": "2026-07-11T14:15:18.984Z"
+  },
+  {
+    "id": "aa5318c7-dbf8-428a-98f5-79664c074be1",
+    "name": "Joseph Thompson",
+    "age": 16,
+    "team": "U-16 Hawks",
+    "position": "Winger",
+    "notes": "Skillful dribbler, inconsistent end product.",
+    "createdAt": "2026-07-11T14:15:18.985Z"
+  },
+  {
+    "id": "9f38774c-8e1f-4803-9e7a-f4cbda15fdb1",
+    "name": "Christopher Garcia",
+    "age": 18,
+    "team": "U-18 Falcons",
+    "position": "Midfielder",
+    "notes": "Tactically astute, good leader on the pitch.",
+    "createdAt": "2026-07-11T14:15:18.986Z"
+  },
+  {
+    "id": "e876d9f0-1a8d-43a4-a25e-bab0203d5100",
+    "name": "Andrew Martinez",
+    "age": 15,
+    "team": "U-15 Eagles",
+    "position": "Striker",
+    "notes": "Raw talent, needs more game experience.",
+    "createdAt": "2026-07-11T14:15:18.987Z"
+  },
+  {
+    "id": "b5c23550-78a9-40f2-9fff-37889577d8ca",
+    "name": "Ryan Robinson",
+    "age": 17,
+    "team": "U-17 Hawks",
+    "position": "Defender",
+    "notes": "Physical presence, aggressive in duels.",
+    "createdAt": "2026-07-11T14:15:18.988Z"
+  },
+  {
+    "id": "8f5d1ed8-d9a6-4fcc-a1fc-51c303097920",
+    "name": "Nathan Clark",
+    "age": 14,
+    "team": "U-14 Falcons",
+    "position": "Midfielder",
+    "notes": "Technically gifted for his age.",
+    "createdAt": "2026-07-11T14:15:18.989Z"
+  },
+  {
+    "id": "d1fe2d88-197a-44f9-8cdc-4411c3a5e56f",
+    "name": "Tyler Rodriguez",
+    "age": 16,
+    "team": "U-16 Eagles",
+    "position": "Winger",
+    "notes": "Explosive acceleration off the dribble.",
+    "createdAt": "2026-07-11T14:15:18.990Z"
+  },
+  {
+    "id": "e8dcfe25-705e-4061-989b-77a598dd5b19",
+    "name": "Jacob Lewis",
+    "age": 18,
+    "team": "U-18 Hawks",
+    "position": "Goalkeeper",
+    "notes": "Good reflexes, needs to improve distribution.",
+    "createdAt": "2026-07-11T14:15:18.991Z"
+  },
+  {
+    "id": "824b30b0-1713-4608-8cb0-8b38cc56c58e",
+    "name": "Gabriel Walker",
+    "age": 15,
+    "team": "U-15 Falcons",
+    "position": "Defender",
+    "notes": "Consistent performer, good positioning sense.",
+    "createdAt": "2026-07-11T14:15:18.991Z"
+  },
+  {
+    "id": "6de97d95-abf7-416e-866a-1a37a64d8161",
+    "name": "Logan Hall",
+    "age": 17,
+    "team": "U-17 Eagles",
+    "position": "Striker",
+    "notes": "Strong hold-up play, good in the air.",
+    "createdAt": "2026-07-11T14:15:18.992Z"
+  },
+  {
+    "id": "4be4fba6-bb10-45b8-81e7-a6cc779b2340",
+    "name": "Isaac Young",
+    "age": 14,
+    "team": "U-14 Hawks",
+    "position": "Midfielder",
+    "notes": "Energetic, needs to work on passing accuracy.",
+    "createdAt": "2026-07-11T14:15:18.993Z"
+  },
+  {
+    "id": "70b03acf-3242-4e83-9f09-51307530d30d",
+    "name": "Owen King",
+    "age": 16,
+    "team": "U-16 Falcons",
+    "position": "Winger",
+    "notes": "Two-footed, good crossing ability.",
+    "createdAt": "2026-07-11T14:15:18.994Z"
+  }
+]

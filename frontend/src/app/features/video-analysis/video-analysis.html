@@ -1,127 +1,208 @@
 <div class="page-wrapper">
-  <!-- Main Content -->
+  <div class="bg-decor" aria-hidden="true"></div>
+
   <main class="content">
     <div class="top-header">
       <div>
+        <span class="eyebrow"><i-lucide [img]="icons.Sparkles" [size]="12"></i-lucide> AI-Powered</span>
         <h1>AI Video Analysis</h1>
         <p>Upload training video and get AI-powered performance insights</p>
       </div>
-      <div class="user-card">Coach Alex</div>
+      <div class="user-card">
+        <i-lucide [img]="icons.User" [size]="15"></i-lucide>
+        Coach Alex
+      </div>
+    </div>
+
+    <div class="player-context-banner" *ngIf="linkedPlayer">
+      <i-lucide [img]="icons.User" [size]="15"></i-lucide>
+      Analyzing for <strong>{{ linkedPlayer.name }}</strong>
+      <a [routerLink]="['/players', linkedPlayer.id]" class="context-link">View profile</a>
     </div>
 
     <div class="main-grid">
-      <!-- LEFT -->
+      <!-- LEFT: input panel -->
       <section class="left-card">
-        <h2>Upload & Player Information</h2>
+        <div class="panel-step">
+          <span class="step-index">1</span>
+          <h2>Upload video</h2>
+        </div>
 
-        <div class="upload-zone">
+        <label class="upload-zone" [class.has-file]="selectedFile">
           <input type="file" accept="video/*" (change)="onFileSelected($event)" />
-          <p>{{ selectedFile?.name || 'Drag & Drop Video Here' }}</p>
+          <span class="upload-icon-badge">
+            <i-lucide [img]="selectedFile ? icons.Video : icons.CloudUpload" [size]="22"></i-lucide>
+          </span>
+          <p class="upload-primary">{{ selectedFile?.name || 'Drag & drop or click to upload' }}</p>
+          <p class="upload-secondary">{{ selectedFile ? 'Click to change video' : 'MP4, MOV or WEBM' }}</p>
+        </label>
+
+        <div class="panel-step">
+          <span class="step-index">2</span>
+          <h2>Player details</h2>
         </div>
 
-        <div class="input-grid">
-          <input placeholder="Player Name" [(ngModel)]="player.name" />
-          <input type="number" placeholder="Age" [(ngModel)]="player.age" />
+        <div class="field-grid">
+          <label class="field">
+            <span class="field-label">Player name</span>
+            <input placeholder="e.g. Jordan Smith" [(ngModel)]="player.name" />
+          </label>
+          <label class="field">
+            <span class="field-label">Age</span>
+            <input type="number" [(ngModel)]="player.age" />
+          </label>
         </div>
 
-        <div class="input-grid">
-          <input type="number" placeholder="Speed" [(ngModel)]="player.speed" />
-          <input type="number" placeholder="Stamina" [(ngModel)]="player.stamina" />
+        <div class="field-grid">
+          <label class="field">
+            <span class="field-label">Speed</span>
+            <input type="number" [(ngModel)]="player.speed" />
+          </label>
+          <label class="field">
+            <span class="field-label">Stamina</span>
+            <input type="number" [(ngModel)]="player.stamina" />
+          </label>
         </div>
 
-        <textarea
-          placeholder="Coach Notes"
-          [(ngModel)]="player.notes"
-        ></textarea>
+        <label class="field">
+          <span class="field-label">Coach notes</span>
+          <textarea placeholder="Anything the AI should factor in…" [(ngModel)]="player.notes"></textarea>
+        </label>
 
-        <button class="analyze-btn" (click)="analyze()">
-          Analyze with AI
+        <button class="analyze-btn" [disabled]="loading" (click)="analyze()">
+          <i-lucide [img]="icons.Sparkles" [size]="16"></i-lucide>
+          {{ loading ? 'Analyzing…' : 'Analyze with AI' }}
         </button>
       </section>
 
-      <!-- RIGHT -->
-      <section class="right-card">
+      <!-- RIGHT: report -->
+      <section class="report-col">
         <div class="report-header">
-          <h2>AI Analysis Report</h2>
-          <span class="status">Completed</span>
+          <div>
+            <h2>AI Analysis Report</h2>
+            <p class="report-sub" *ngIf="report">
+              {{ player.name || 'Player' }}<ng-container *ngIf="player.age"> · Age {{ player.age }}</ng-container>
+            </p>
+          </div>
+          <span class="status" [class]="'tone-' + reportStatus.tone">
+            <span class="status-dot"></span>{{ reportStatus.label }}
+          </span>
         </div>
 
-        <div *ngIf="loading" class="loading-state">
+        <div *ngIf="loading" class="state-card loading-state">
           <div class="spinner"></div>
           <p>AI is analyzing video...</p>
         </div>
 
-        <div *ngIf="!loading && report">
+        <div *ngIf="!loading && errorMessage" class="state-card error-state">
+          <span class="state-icon-badge critical"><i-lucide [img]="icons.TriangleAlert" [size]="26"></i-lucide></span>
+          <p class="state-title">Something went wrong</p>
+          <p class="state-sub">{{ errorMessage }}</p>
+        </div>
 
-          <!-- Score Cards -->
-         <div class="score-grid">
-  <apx-chart
-    [series]="scoreGauge.series!"
-    [chart]="scoreGauge.chart!"
-    [plotOptions]="scoreGauge.plotOptions!"
-    [labels]="scoreGauge.labels!">
-  </apx-chart>
+        <ng-container *ngIf="!loading && !errorMessage && report">
+          <div class="fallback-banner" *ngIf="report.analysis_mode === 'stats_only'">
+            <i-lucide [img]="icons.TriangleAlert" [size]="16"></i-lucide>
+            Video analysis wasn't available for this run — insights below are based on player stats only.
+          </div>
 
-  <apx-chart
-    [series]="speedGauge.series!"
-    [chart]="speedGauge.chart!"
-    [plotOptions]="speedGauge.plotOptions!"
-    [labels]="speedGauge.labels!">
-  </apx-chart>
+          <div class="saved-banner" *ngIf="linkedPlayer">
+            <i-lucide [img]="icons.CircleCheck" [size]="16"></i-lucide>
+            Saved to {{ linkedPlayer.name }}'s profile
+            <a [routerLink]="['/players', linkedPlayer.id]" class="context-link">View history</a>
+          </div>
 
-  <apx-chart
-    [series]="staminaGauge.series!"
-    [chart]="staminaGauge.chart!"
-    [plotOptions]="staminaGauge.plotOptions!"
-    [labels]="staminaGauge.labels!">
-  </apx-chart>
+          <!-- Stat tiles -->
+          <div class="stat-grid">
+            <div class="stat-tile" *ngFor="let tile of statTiles" [class.hero]="tile.hero" [style.--tone]="tile.tone" [style.--tint]="tile.tint">
+              <span class="stat-label">{{ tile.label }}</span>
+              <span class="stat-value">{{ tile.value }}<small>%</small></span>
+              <div class="stat-meter">
+                <div class="stat-meter-fill" [style.width.%]="tile.value"></div>
+              </div>
+              <span class="stat-sublabel">{{ tile.sublabel }}</span>
+            </div>
+          </div>
 
-  <apx-chart
-    [series]="riskGauge.series!"
-    [chart]="riskGauge.chart!"
-    [plotOptions]="riskGauge.plotOptions!"
-    [labels]="riskGauge.labels!">
-  </apx-chart>
-</div>
-
-          <!-- Radar Placeholder -->
+          <!-- Radar + breakdown -->
           <div class="radar-card">
-  <h3>Skill Breakdown</h3>
+            <h3>Skill Breakdown</h3>
+            <div class="radar-layout">
+              <apx-chart
+                class="radar-chart"
+                [series]="radarChart.series!"
+                [chart]="radarChart.chart!"
+                [xaxis]="radarChart.xaxis!"
+                [yaxis]="radarChart.yaxis!"
+                [plotOptions]="radarChart.plotOptions!"
+                [stroke]="radarChart.stroke!"
+                [fill]="radarChart.fill!"
+                [markers]="radarChart.markers!"
+                [dataLabels]="radarChart.dataLabels!"
+                [legend]="radarChart.legend!"
+                [tooltip]="radarChart.tooltip!">
+              </apx-chart>
 
-  <apx-chart
-    [series]="radarChart.series!"
-    [chart]="radarChart.chart!"
-    [xaxis]="radarChart.xaxis!"
-    [stroke]="radarChart.stroke!"
-    [fill]="radarChart.fill!">
-  </apx-chart>
-</div>
+              <ul class="skill-table">
+                <li *ngFor="let s of skillBreakdown">
+                  <span class="skill-name">{{ s.label }}</span>
+                  <span class="skill-value">{{ s.value }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <!-- Insights -->
           <div class="insights-grid">
             <div class="insight-card good">
-              <h3>Strengths</h3>
-              <ul>
-                <li *ngFor="let s of report.strengths">✓ {{ s }}</li>
-              </ul>
+              <h3><span class="insight-icon"><i-lucide [img]="icons.CircleCheck" [size]="13"></i-lucide></span> Strengths</h3>
+              <div class="insight-list">
+                <div class="insight-row" *ngFor="let s of report.strengths">
+                  <span class="insight-dot"></span>{{ s }}
+                </div>
+              </div>
             </div>
 
             <div class="insight-card bad">
-              <h3>Weaknesses</h3>
-              <ul>
-                <li *ngFor="let w of report.weaknesses">⚠ {{ w }}</li>
-              </ul>
+              <h3><span class="insight-icon"><i-lucide [img]="icons.TriangleAlert" [size]="13"></i-lucide></span> Weaknesses</h3>
+              <div class="insight-list">
+                <div class="insight-row" *ngFor="let w of report.weaknesses">
+                  <span class="insight-dot"></span>{{ w }}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="recommendation-card">
-            <h3>AI Recommendation</h3>
-            <p>{{ report.posture_analysis }}</p>
-          </div>
-        </div>
+          <!-- Tabbed report details -->
+          <div class="tab-card">
+            <div class="tab-bar">
+              <button [class.active]="activeTab === 'posture'" (click)="setTab('posture')">
+                <i-lucide [img]="icons.PersonStanding" [size]="14"></i-lucide> Posture
+              </button>
+              <button [class.active]="activeTab === 'recommendations'" (click)="setTab('recommendations')">
+                <i-lucide [img]="icons.Lightbulb" [size]="14"></i-lucide> Recommendations
+              </button>
+              <button [class.active]="activeTab === 'injury'" (click)="setTab('injury')">
+                <i-lucide [img]="icons.HeartPulse" [size]="14"></i-lucide> Injury Risk
+              </button>
+            </div>
 
-        <div *ngIf="!loading && !report" class="empty-state">
-          Upload a video and click Analyze
+            <div class="tab-body">
+              <p *ngIf="activeTab === 'posture'">{{ report.posture_analysis }}</p>
+
+              <ul class="tab-list" *ngIf="activeTab === 'recommendations'">
+                <li *ngFor="let r of report.recommendations">{{ r }}</li>
+              </ul>
+
+              <p *ngIf="activeTab === 'injury'">{{ report.injury_risk }}</p>
+            </div>
+          </div>
+        </ng-container>
+
+        <div *ngIf="!loading && !errorMessage && !report" class="state-card empty-state">
+          <span class="state-icon-badge"><i-lucide [img]="icons.Video" [size]="30"></i-lucide></span>
+          <p class="state-title">Upload a video and click Analyze</p>
+          <p class="state-sub">Our AI will analyze the video and generate performance insights</p>
         </div>
       </section>
     </div>

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "c6b54889-d57a-4cc7-9230-9870c982952a",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "7daa4239-7a91-4964-96cf-60b5b4cdd9f3",
+    "text": "Focus on consistent ball contact and follow-through for improved accuracy on both ground shots and volleys.",
+    "status": "pending",
+    "createdAt": "2026-07-11T14:31:35.950Z"
+  },
+  {
+    "id": "d8f56a3b-f1c3-4383-b4f3-b12f1f3a3c0a",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "7daa4239-7a91-4964-96cf-60b5b4cdd9f3",
+    "text": "Implement specific drills to correct the backward lean during volleys, emphasizing a more upright or slightly forward-leaning posture at contact.",
+    "status": "pending",
+    "createdAt": "2026-07-11T14:31:35.953Z"
+  },
+  {
+    "id": "8e4f3523-cfc1-4f04-b1a4-566638517d70",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "7daa4239-7a91-4964-96cf-60b5b4cdd9f3",
+    "text": "Practice finishing drills under various pressure scenarios to address the weakness identified in the player context.",
+    "status": "pending",
+    "createdAt": "2026-07-11T14:31:35.955Z"
+  },
+  {
+    "id": "cbf6e134-63fc-4d34-9d90-bca6c9e8c666",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "7daa4239-7a91-4964-96cf-60b5b4cdd9f3",
+    "text": "Incorporate core strengthening exercises to enhance balance and stability during dynamic kicking movements.",
+    "status": "pending",
+    "createdAt": "2026-07-11T14:31:35.958Z"
+  },
+  {
+    "id": "cb093c8b-691f-4c4d-addd-bd51dbf1c619",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "analysisId": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "text": "Implement specific drills to improve reaction time and anticipation for shots.",
+    "status": "pending",
+    "createdAt": "2026-07-13T04:02:59.092Z"
+  },
+  {
+    "id": "c6ed6469-cb9f-4ff2-90e4-948557ab6482",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "analysisId": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "text": "Focus on developing 'soft hands' and refined catching/blocking techniques through targeted drills.",
+    "status": "pending",
+    "createdAt": "2026-07-13T04:02:59.096Z"
+  },
+  {
+    "id": "16b647f7-c779-4716-85e8-1a3b7d4988b2",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "analysisId": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "text": "Practice dynamic stretching and mobility exercises for the upper body and shoulders to enhance arm flexibility during saves.",
+    "status": "pending",
+    "createdAt": "2026-07-13T04:02:59.099Z"
+  },
+  {
+    "id": "66356196-e6c8-419f-861d-dd7d610a9bfe",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "analysisId": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "text": "Vary starting positions and practice covering different angles of the goal to optimize shot-stopping coverage.",
+    "status": "pending",
+    "createdAt": "2026-07-13T04:02:59.102Z"
+  },
+  {
+    "id": "85aeb627-3bfb-47a1-84b5-90027eb0491f",
+    "playerId": "a4a21bba-2eba-4b31-8d0d-50831c0e6804",
+    "analysisId": "ffe3b369-8a61-4a39-a6ab-cb97bd0aa112",
+    "text": "Incorporate plyometric and agility exercises to enhance explosive power and quick lateral movements for more effective dives.",
+    "status": "pending",
+    "createdAt": "2026-07-13T04:02:59.106Z"
+  },
+  {
+    "id": "622631fd-d78e-47e0-9dc3-cabd2e9f41ea",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "3fade667-a595-43f2-8cfb-ab5b9652f41e",
+    "text": "Implement a progressive strength and conditioning program focusing on overall athleticism and injury prevention.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:08:14.996Z"
+  },
+  {
+    "id": "6de02db4-1ab7-4cea-872c-ef99cdd9f7ed",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "3fade667-a595-43f2-8cfb-ab5b9652f41e",
+    "text": "Prioritize fundamental skill development and repetition to enhance consistency.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:08:14.998Z"
+  },
+  {
+    "id": "a26c7453-8170-4e22-8ff7-6c438e0112fa",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "3fade667-a595-43f2-8cfb-ab5b9652f41e",
+    "text": "Focus on proper recovery protocols including sleep and nutrition to support growth and performance.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:08:14.999Z"
+  },
+  {
+    "id": "de655c84-2314-4584-ae05-a400b78542a0",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "3fade667-a595-43f2-8cfb-ab5b9652f41e",
+    "text": "Engage in regular technical feedback sessions with a coach to refine specific movements and mechanics.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:08:15.002Z"
+  },
+  {
+    "id": "83e4846a-f37b-4b98-a3cb-9c862654226f",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "13c33b90-c1f0-437c-8c0c-5599a5d71212",
+    "text": "Implement targeted drills for clean catching and ball retention in goal.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:12:34.082Z"
+  },
+  {
+    "id": "2453426d-d489-4574-b722-4f6d8f1bd4e4",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "13c33b90-c1f0-437c-8c0c-5599a5d71212",
+    "text": "Focus on strengthening grip and improving hand-eye coordination.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:12:34.088Z"
+  },
+  {
+    "id": "1108d416-be80-4a8a-a69a-02ad00530868",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "13c33b90-c1f0-437c-8c0c-5599a5d71212",
+    "text": "Practice goalkeeping under various pressure scenarios to enhance decision-making and execution.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:12:34.091Z"
+  },
+  {
+    "id": "0248d56a-c719-42c6-b073-6739e07f0632",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "13c33b90-c1f0-437c-8c0c-5599a5d71212",
+    "text": "Work on lateral movement efficiency and diving techniques.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:12:34.095Z"
+  },
+  {
+    "id": "030965bf-bb71-4371-bb67-e0c6bb7ae64b",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
+    "text": "Implement specific goalkeeping drills for low shots, emphasizing dropping the body and using proper hand-to-ground contact.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:13:57.533Z"
+  },
+  {
+    "id": "e4c45f66-0b98-428c-8179-a58a387f1bb4",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
+    "text": "Focus on developing 'soft hands' technique through catching and deflection drills to improve ball control.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:13:57.538Z"
+  },
+  {
+    "id": "d3f91dc5-9504-4817-80cb-3846dd5975ce",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
+    "text": "Work on maintaining a sustained active ready stance and quick, explosive recovery between plays to be prepared for follow-up shots.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:13:57.542Z"
+  },
+  {
+    "id": "3addebae-1f30-4467-9872-51dee1068754",
+    "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
+    "analysisId": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
+    "text": "Incorporate plyometric and agility exercises to enhance explosive power for diving and rapid lateral movements.",
+    "status": "pending",
+    "createdAt": "2026-07-13T10:13:57.546Z"
+  }
+]

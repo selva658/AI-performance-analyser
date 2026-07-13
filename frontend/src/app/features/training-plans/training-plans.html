@@ -1,0 +1,76 @@
+<div class="page-wrapper">
+  <div class="bg-decor" aria-hidden="true"></div>
+
+  <main class="content">
+    <div class="top-header">
+      <div>
+        <span class="eyebrow"><i-lucide [img]="icons.CalendarClock" [size]="12"></i-lucide> Schedule</span>
+        <h1>Training Plans</h1>
+        <p>Every scheduled session across your roster, in one place</p>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage()" class="error-banner">{{ errorMessage() }}</div>
+
+    <div *ngIf="loading()" class="state-card">
+      <div class="spinner"></div>
+      <p>Loading training plans…</p>
+    </div>
+
+    <div class="state-card empty-state" *ngIf="!loading() && !sessions().length">
+      <span class="state-icon-badge"><i-lucide [img]="icons.CalendarClock" [size]="28"></i-lucide></span>
+      <p class="state-title">Nothing scheduled yet</p>
+      <p class="state-sub">Schedule a training session from any player's profile to see it here.</p>
+    </div>
+
+    <ng-container *ngIf="!loading() && sessions().length">
+      <section class="session-section" *ngIf="upcoming.length">
+        <h2>Upcoming ({{ upcoming.length }})</h2>
+        <div class="session-list">
+          <a
+            class="session-row"
+            *ngFor="let session of upcoming"
+            [routerLink]="playerFor(session) ? ['/players', session.playerId] : null">
+            <button class="toggle-btn" (click)="toggleSession(session); $event.preventDefault(); $event.stopPropagation()" aria-label="Mark as completed">
+              <i-lucide [img]="icons.Circle" [size]="18"></i-lucide>
+            </button>
+            <div class="session-player-avatar">{{ playerFor(session) ? initials(playerFor(session)!.name) : '?' }}</div>
+            <div class="session-info">
+              <span class="session-title">{{ session.title }}</span>
+              <span class="session-meta">
+                {{ playerFor(session)?.name || 'Unknown player' }} · {{ session.scheduledAt | date: 'MMM d, y · h:mm a' }}
+              </span>
+            </div>
+            <button class="icon-btn delete-btn" aria-label="Delete session" (click)="deleteSession(session, $event)">
+              <i-lucide [img]="icons.Trash2" [size]="14"></i-lucide>
+            </button>
+          </a>
+        </div>
+      </section>
+
+      <section class="session-section" *ngIf="completed.length">
+        <h2>Completed ({{ completed.length }})</h2>
+        <div class="session-list">
+          <a
+            class="session-row done"
+            *ngFor="let session of completed"
+            [routerLink]="playerFor(session) ? ['/players', session.playerId] : null">
+            <button class="toggle-btn" (click)="toggleSession(session); $event.preventDefault(); $event.stopPropagation()" aria-label="Mark as upcoming">
+              <i-lucide [img]="icons.CircleCheck" [size]="18"></i-lucide>
+            </button>
+            <div class="session-player-avatar">{{ playerFor(session) ? initials(playerFor(session)!.name) : '?' }}</div>
+            <div class="session-info">
+              <span class="session-title">{{ session.title }}</span>
+              <span class="session-meta">
+                {{ playerFor(session)?.name || 'Unknown player' }} · {{ session.scheduledAt | date: 'MMM d, y · h:mm a' }}
+              </span>
+            </div>
+            <button class="icon-btn delete-btn" aria-label="Delete session" (click)="deleteSession(session, $event)">
+              <i-lucide [img]="icons.Trash2" [size]="14"></i-lucide>
+            </button>
+          </a>
+        </div>
+      </section>
+    </ng-container>
+  </main>
+</div>
