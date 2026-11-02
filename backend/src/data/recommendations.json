@@ -164,7 +164,71 @@
     "playerId": "7c14afb1-1409-435c-ad30-adc1c0e57840",
     "analysisId": "233d4b13-f8b0-420e-ae2e-6c9526a713cf",
     "text": "Incorporate plyometric and agility exercises to enhance explosive power for diving and rapid lateral movements.",
-    "status": "pending",
+    "status": "done",
     "createdAt": "2026-07-13T10:13:57.546Z"
+  },
+  {
+    "id": "3e2bea74-3c93-4bdd-b767-0d05aec3a066",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8b16035e-50b0-46bc-b6ab-8057019cb094",
+    "text": "Focus on drills to improve lateral agility and explosiveness, particularly for covering the extremities of the goal.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:33:56.677Z"
+  },
+  {
+    "id": "daafd207-b3c8-4ccf-b2fe-e1d81b4212ae",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8b16035e-50b0-46bc-b6ab-8057019cb094",
+    "text": "Practice various types of shot-stopping scenarios, including low shots, high shots, and advanced diving techniques, to enhance versatility.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:33:56.680Z"
+  },
+  {
+    "id": "c5859f36-a9f5-4b4e-91a8-4187a124d92b",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8b16035e-50b0-46bc-b6ab-8057019cb094",
+    "text": "Incorporate plyometric training to further develop reactive power for quick movements and jumps.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:33:56.684Z"
+  },
+  {
+    "id": "fbf6b79a-a451-43ae-b752-bf05e18cb861",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8b16035e-50b0-46bc-b6ab-8057019cb094",
+    "text": "Review footage of successful saves to analyze and reinforce optimal body positioning and hand placement.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:33:56.687Z"
+  },
+  {
+    "id": "55123f4b-96f0-45fc-845b-2ba84b0fbc05",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8c765de8-fa8d-405f-bbc5-ebe0c9fcffe3",
+    "text": "Implement targeted drills focusing on hand positioning and body shape for various low shots to ensure consistent and clean saves.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:35:58.872Z"
+  },
+  {
+    "id": "fee55879-9de3-4ec5-8a08-fed4f6ef1a07",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8c765de8-fa8d-405f-bbc5-ebe0c9fcffe3",
+    "text": "Incorporate agility ladders and cone drills to enhance lateral movement speed and explosiveness for side-to-side coverage.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:35:58.878Z"
+  },
+  {
+    "id": "b6eca472-33ba-4c0b-bd53-d0c775d8a758",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8c765de8-fa8d-405f-bbc5-ebe0c9fcffe3",
+    "text": "Focus on plyometric exercises (e.g., box jumps, broad jumps) to further develop explosive power for dives and vertical jumps.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:35:58.883Z"
+  },
+  {
+    "id": "ebcdffef-1345-48f5-a879-6c92da80addd",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "analysisId": "8c765de8-fa8d-405f-bbc5-ebe0c9fcffe3",
+    "text": "Analyze professional goalkeeper footage to observe and emulate refined techniques for different shot trajectories and save situations.",
+    "status": "pending",
+    "createdAt": "2026-07-14T03:35:58.888Z"
   }
 ]

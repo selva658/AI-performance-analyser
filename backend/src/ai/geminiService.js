@@ -38,6 +38,30 @@ function cleanJson(text) {
   return text.replace(/```json/g, "").replace(/```/g, "").trim();
 }
 
+const DEFAULT_METRICS = {
+  overall_score: 0,
+  speed: 0,
+  stamina: 0,
+  technique: 0,
+  consistency: 0,
+  balance: 0,
+};
+
+// Gemini's JSON isn't schema-enforced, so a response can omit fields (e.g.
+// "metrics") entirely. Backfill defaults so consumers never see undefined.
+function normalizeReport(report) {
+  return {
+    strengths: [],
+    weaknesses: [],
+    posture_analysis: "",
+    recommendations: [],
+    injury_risk: "",
+    risk_level: "medium",
+    ...report,
+    metrics: { ...DEFAULT_METRICS, ...(report.metrics || {}) },
+  };
+}
+
 async function uploadVideoToGemini(filePath, mimeType) {
   const { file } = await withTimeout(
     fileManager.uploadFile(filePath, {
@@ -152,7 +176,7 @@ Rules for metrics:
 `;
 
   const result = await withRetry(() => model.generateContent(prompt));
-  const report = JSON.parse(cleanJson(result.response.text()));
+  const report = normalizeReport(JSON.parse(cleanJson(result.response.text())));
   report.analysis_mode = "stats_only";
   return report;
 }
@@ -205,7 +229,7 @@ Rules for metrics:
     ]),
   );
 
-  const report = JSON.parse(cleanJson(result.response.text()));
+  const report = normalizeReport(JSON.parse(cleanJson(result.response.text())));
   report.analysis_mode = "video";
   return report;
 }

@@ -1,0 +1,13 @@
+{
+  "name": "athleteiq",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root scripts to run AthleteIQ frontend and backend together",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev": "concurrently -n BACKEND,FRONTEND -c blue,green \"npm run dev --prefix backend\" \"npm start --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

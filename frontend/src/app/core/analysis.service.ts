@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface AnalysisReport {
   analysis_mode: 'video' | 'stats_only';
@@ -27,7 +28,7 @@ export interface Analysis {
   report: AnalysisReport;
 }
 
-const API_URL = 'http://localhost:3000/api/analyses';
+const API_URL = `${environment.apiUrl}/analyses`;
 
 @Injectable({ providedIn: 'root' })
 export class AnalysisService {

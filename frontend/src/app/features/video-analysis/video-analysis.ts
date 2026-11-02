@@ -18,6 +18,7 @@ import {
 } from 'lucide-angular';
 import { ThemeService } from '../../core/theme.service';
 import { Player, PlayerService } from '../../core/player.service';
+import { environment } from '../../../environments/environment';
 
 type Tone = { fill: string; tint: string };
 
@@ -153,11 +154,18 @@ export class VideoAnalysis implements OnInit {
       formData.append('playerId', this.linkedPlayer.id);
     }
 
-    this.http.post('http://localhost:3000/api/ai/video-analysis', formData).subscribe({
+    this.http.post(`${environment.apiUrl}/ai/video-analysis`, formData).subscribe({
       next: (res: any) => {
         this.report = res;
 
-        const metrics = res.metrics;
+        const metrics = res.metrics || {
+          overall_score: 0,
+          speed: 0,
+          stamina: 0,
+          technique: 0,
+          consistency: 0,
+          balance: 0,
+        };
         const risk = this.riskTone(res.risk_level);
         const riskPercent = this.mapRisk(res.risk_level);
 

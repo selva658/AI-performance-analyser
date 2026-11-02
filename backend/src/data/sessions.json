@@ -8,5 +8,15 @@
     "recommendationId": "cbf6e134-63fc-4d34-9d90-bca6c9e8c666",
     "status": "completed",
     "createdAt": "2026-07-13T09:50:57.677Z"
+  },
+  {
+    "id": "ef1405bf-8067-4665-ad8e-239253aab932",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "title": "Review footage of successful saves to analyze and reinforce optimal body positioning and hand placement.",
+    "scheduledAt": "2026-07-16T03:34:00.000Z",
+    "notes": "training session",
+    "recommendationId": "fbf6b79a-a451-43ae-b752-bf05e18cb861",
+    "status": "upcoming",
+    "createdAt": "2026-07-14T03:34:45.529Z"
   }
 ]

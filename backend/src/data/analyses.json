@@ -144,5 +144,79 @@
       },
       "analysis_mode": "video"
     }
+  },
+  {
+    "id": "8b16035e-50b0-46bc-b6ab-8057019cb094",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "createdAt": "2026-07-14T03:33:56.669Z",
+    "report": {
+      "strengths": [
+        "Good initial ready stance with a low center of gravity",
+        "Quick reaction time to shots",
+        "Effective shot-stopping technique, demonstrated by successful block and supported by player context",
+        "Maintains good balance during movement and save attempts",
+        "Appears focused and engaged during play"
+      ],
+      "weaknesses": [
+        "Limited visible lateral movement range for the first shot",
+        "Video length is too short to assess advanced diving techniques or distribution skills",
+        "Could improve explosiveness in lateral pushes to cover wider areas"
+      ],
+      "posture_analysis": "Oliver exhibits an athletic and engaged posture. His initial ready stance is characterized by bent knees, a low center of gravity, and a slight forward lean of the upper body, indicating readiness. During save attempts, he maintains a relatively compact body shape. No significant postural imbalances or inefficiencies are visible in the short clip.",
+      "recommendations": [
+        "Focus on drills to improve lateral agility and explosiveness, particularly for covering the extremities of the goal.",
+        "Practice various types of shot-stopping scenarios, including low shots, high shots, and advanced diving techniques, to enhance versatility.",
+        "Incorporate plyometric training to further develop reactive power for quick movements and jumps.",
+        "Review footage of successful saves to analyze and reinforce optimal body positioning and hand placement."
+      ],
+      "injury_risk": "Based on the observed movements and athletic posture, there are no immediate indicators of high injury risk. His body mechanics appear sound for a goalkeeper.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 78,
+        "speed": 75,
+        "stamina": 65,
+        "technique": 80,
+        "consistency": 70,
+        "balance": 75
+      },
+      "analysis_mode": "video"
+    }
+  },
+  {
+    "id": "8c765de8-fa8d-405f-bbc5-ebe0c9fcffe3",
+    "playerId": "ce581452-aa38-4fb6-b31c-9decf28e64dc",
+    "createdAt": "2026-07-14T03:35:58.866Z",
+    "report": {
+      "strengths": [
+        "Quick reaction time and reflexes to incoming shots.",
+        "Dynamic and explosive diving ability to cover the goal.",
+        "Exhibits a strong initial ready stance.",
+        "High effort and engagement during save attempts.",
+        "Effective at stopping shots, as noted in player context and observed."
+      ],
+      "weaknesses": [
+        "Could refine technique for specific save types, such as consistently using hands for low shots rather than legs.",
+        "Maintaining a consistently lower and more aggressive ready stance for faster propulsion.",
+        "Minor transient imbalance observed during recovery after a full-extension dive."
+      ],
+      "posture_analysis": "Oliver demonstrates an athletic and functional posture in his ready stance, with bent knees and a slight forward lean, indicative of readiness. His posture remains relatively compact and controlled during dynamic movements like diving, minimizing awkward positions. There's a brief moment of slight instability upon recovery from a dive, but overall, his posture supports effective goalkeeping movements.",
+      "recommendations": [
+        "Implement targeted drills focusing on hand positioning and body shape for various low shots to ensure consistent and clean saves.",
+        "Incorporate agility ladders and cone drills to enhance lateral movement speed and explosiveness for side-to-side coverage.",
+        "Focus on plyometric exercises (e.g., box jumps, broad jumps) to further develop explosive power for dives and vertical jumps.",
+        "Analyze professional goalkeeper footage to observe and emulate refined techniques for different shot trajectories and save situations."
+      ],
+      "injury_risk": "Oliver's movements appear controlled and fluid, with no obvious signs of biomechanical stress or poor landing mechanics that would suggest an elevated injury risk during save attempts. His diving form appears safe.",
+      "risk_level": "low",
+      "metrics": {
+        "overall_score": 85,
+        "speed": 80,
+        "stamina": 70,
+        "technique": 78,
+        "consistency": 82,
+        "balance": 75
+      },
+      "analysis_mode": "video"
+    }
   }
 ]

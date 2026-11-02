@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Player {
   id: string;
@@ -15,7 +16,7 @@ export interface Player {
 
 export type PlayerInput = Partial<Omit<Player, 'id' | 'createdAt'>> & { password?: string };
 
-const API_URL = 'http://localhost:3000/api/players';
+const API_URL = `${environment.apiUrl}/players`;
 
 @Injectable({ providedIn: 'root' })
 export class PlayerService {

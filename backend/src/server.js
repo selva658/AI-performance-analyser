@@ -8,7 +8,8 @@ const analysisRoutes = require("./routes/analysisRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const sessionRoutes = require("./routes/sessionRoutes");
 const authRoutes = require("./routes/authRoutes");
-app.use(cors());
+const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:4200").split(",");
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/ai", aiRoutes);
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
   res.send("AthleteIQ API Running 🚀");
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

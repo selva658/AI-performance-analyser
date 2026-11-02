@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export type RecommendationStatus = 'pending' | 'done';
 
@@ -13,7 +14,7 @@ export interface Recommendation {
   createdAt: string;
 }
 
-const API_URL = 'http://localhost:3000/api/recommendations';
+const API_URL = `${environment.apiUrl}/recommendations`;
 
 @Injectable({ providedIn: 'root' })
 export class RecommendationService {

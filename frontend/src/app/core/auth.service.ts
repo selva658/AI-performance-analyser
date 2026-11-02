@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export type Role = 'coach' | 'player';
 
@@ -16,7 +17,7 @@ interface LoginResponse {
   user: AuthUser;
 }
 
-const API_URL = 'http://localhost:3000/api/auth';
+const API_URL = `${environment.apiUrl}/auth`;
 const TOKEN_KEY = 'athleteiq-token';
 
 @Injectable({ providedIn: 'root' })
