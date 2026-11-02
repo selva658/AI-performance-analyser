@@ -64,7 +64,12 @@ router.post("/video-analysis", requireAuth, requireCoach, upload.single("video")
     res.json(report);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: error.message });
+    const status = error?.status || error?.response?.status;
+    const message =
+      status === 503
+        ? "The AI analysis service is currently overloaded. Please try again in a minute."
+        : "Video analysis failed. Please try again.";
+    res.status(502).json({ error: message });
   } finally {
     fs.unlink(req.file.path, () => {});
   }

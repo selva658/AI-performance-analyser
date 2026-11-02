@@ -17,7 +17,7 @@ function withTimeout(promise, ms, message) {
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
-async function withRetry(fn, attempts = 2) {
+async function withRetry(fn, attempts = 4) {
   let lastError;
   for (let i = 0; i < attempts; i++) {
     try {
@@ -28,7 +28,7 @@ async function withRetry(fn, attempts = 2) {
       if (!RETRYABLE_STATUS.has(status) || i === attempts - 1) {
         throw error;
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000 * (i + 1)));
+      await new Promise((resolve) => setTimeout(resolve, 1500 * 2 ** i));
     }
   }
   throw lastError;
