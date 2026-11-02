@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  // Replace with your deployed Render backend URL after creating the service.
-  apiUrl: 'https://athleteiq-backend.onrender.com/api',
+  apiUrl: 'https://ai-performance-analyser-e2sk.onrender.com/api',
 };
